@@ -1,4 +1,3 @@
-# APR_Assignment1
 # 📌 Assignment-1: Bank Marketing Campaign Prediction  
 
 ## 📖 Overview  
@@ -28,74 +27,84 @@ We applied **Logistic Regression** and **K-Nearest Neighbors (KNN)** classifiers
 - Applied with:  
   ```python
   logreg = LogisticRegression(max_iter=500, solver='liblinear', class_weight='balanced', random_state=42)
-- Handles imbalance using class_weight='balanced'
+  ```
+- Handles imbalance using `class_weight='balanced'`
 
-  2️⃣ K-Nearest Neighbors (KNN)
+### 2️⃣ K-Nearest Neighbors (KNN)
+- A distance-based classification algorithm.
+- Uses the 5 nearest neighbors (k=5) to predict the class.
+- Applied with:
+  ```python
+  knn = KNeighborsClassifier(n_neighbors=5)
+  ```
 
-A distance-based classification algorithm.
+---
 
-Uses the 5 nearest neighbors (k=5) to predict the class.
-
-Applied with:
-
-knn = KNeighborsClassifier(n_neighbors=5)
-
-📊 Evaluation Metrics
+## 📊 Evaluation Metrics
 
 We evaluated models using:
+- **Accuracy** → Overall correctness of the model.
+- **Precision** → Fraction of positive predictions that were correct.
+- **Recall** → Fraction of actual positives identified correctly.
+- **F1-score** → Harmonic mean of precision & recall.
 
-Accuracy → Overall correctness of the model.
+---
 
-Precision → Fraction of positive predictions that were correct.
+## 📊 Model Performance Results
 
-Recall → Fraction of actual positives identified correctly.
+### ✅ Logistic Regression
+- **Accuracy**: 0.81
+- **Precision**: 0.56
+- **Recall**: 0.81
+- **F1-Score**: 0.66
 
-F1-score → Harmonic mean of precision & recall.
+**Confusion Matrix**:
+- True Negative (Actual: No, Predicted: No): 1230
+- False Positive (Actual: No, Predicted: Yes): 284
+- False Negative (Actual: Yes, Predicted: No): 364
+- True Positive (Actual: Yes, Predicted: Yes): 1240
 
-📸 Outputs
-✅ Logistic Regression
+### ✅ K-Nearest Neighbors (KNN, k=5)
+- **Accuracy**: 0.83
+- **Precision**: 0.66
+- **Recall**: 0.49
+- **F1-Score**: 0.56
 
-Classification Report
+**Confusion Matrix**:
+- True Negative (Actual: No, Predicted: No): 1400
+- False Positive (Actual: No, Predicted: Yes): 114
+- False Negative (Actual: Yes, Predicted: No): 229
+- True Positive (Actual: Yes, Predicted: Yes): 218
 
-Precision: 0.xx | Recall: 0.xx | F1-Score: 0.xx | Accuracy: 0.xx
+---
 
+## 📑 How to Run
 
-Confusion Matrix with Metrics
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/your-username/Assignment-1-BankMarketing.git](https://github.com/IshaJaiswal32/APR_Assignment1)
+   cd APR_Assignment_1.ipynb
+   ```
 
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-✅ K-Nearest Neighbors (KNN, k=5)
+3. **Run the notebook**
+   ```bash
+   jupyter notebook APR_Assignment_1.ipynb
+   ```
 
-Classification Report
+---
 
-Precision: 0.xx | Recall: 0.xx | F1-Score: 0.xx | Accuracy: 0.xx
+## 📌 Conclusion
 
+- **Logistic Regression** demonstrated better recall (0.81), meaning it was more effective at identifying actual subscribers to the term deposit.
+- **KNN** showed higher accuracy (0.83) and precision (0.66), but lower recall (0.49), indicating it was more conservative in predicting positive cases.
+- The dataset is imbalanced, making recall a more important metric than raw accuracy in real banking use-cases where identifying potential subscribers is crucial.
+- Logistic Regression's balanced class weighting helped it perform better on the imbalanced dataset compared to KNN.
 
-Confusion Matrix with Metrics
+---
 
-
-📑 How to Run
-
-Clone the repository
-
-git clone https://github.com/your-username/Assignment-1-BankMarketing.git
-cd Assignment-1-BankMarketing
-
-
-Install dependencies
-
-pip install -r requirements.txt
-
-
-Run the notebook
-
-jupyter notebook Assignment-1.ipynb
-
-📌 Conclusion
-
-Logistic Regression performed better in terms of handling class imbalance.
-
-KNN struggled with high-dimensional categorical data without feature scaling.
-
-The dataset is imbalanced, so recall is more important than raw accuracy in real banking use-cases.
-
-👩‍💻 Author: Isha Jaiswal (IIT Patna)
+👩‍💻 **Author**: Isha Jaiswal (IIT Patna)
